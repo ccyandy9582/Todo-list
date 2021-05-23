@@ -1,0 +1,34 @@
+<%- include('header.ejs')  %>
+<div class="container mt-3" align="center">
+    <div class="col-12 col-sm-6 col-sm-offset-3" align="left">
+        <h1 align="center"><span class="fa fa-sign-in"></span> Signup</h1>
+        <% if (typeof alert != 'undefined') { %>
+            <% alert.forEach((err)=>{ %>
+                <div class="alert alert-warning alert dismissible fade show" role="alert">
+                    <%= err.msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <% }) %> 
+        <% } %>
+        <form action="/signup/create" method="POST">
+            <div class="form-group">
+              <label for="Email1">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="conPassword">Confirm password</label>
+                <input type="password" class="form-control" id="conPassword" name="conPassword" placeholder="Password" >
+              </div>
+              <div align="center">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </div>
+          </form>
+    </div>
+</div>
+<%- include('footer.ejs')  %>

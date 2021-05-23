@@ -32,7 +32,7 @@ userSchema.pre('save', (next) => {
         next()
 })
 
-userSchemas.statis.login = (email, password) => {
+userSchema.statics.findByCredentials = (email, password) => {
     var user = this
     return user.findOne({email}).then((user) => {
         if (user) {
@@ -48,6 +48,6 @@ userSchemas.statis.login = (email, password) => {
     })
 }
 
-var user = mongoose.model('user', userSchema)
+var User = mongoose.model('User', userSchema)
 
-module.exports = {user}
+module.exports = { User }
